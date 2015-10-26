@@ -7,38 +7,31 @@ module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.lodash = require('lodash');
     this.path = require('path');
-
-    this.argument('componentName', {
-      type: String,
-      required: false,
-      defaults: 'component'
-    });
   },
   prompting: function () {
-    // var done = this.async();
+    var done = this.async();
 
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the stupendous ' + chalk.red('PV field') + ' generator!'
     ));
 
-    // var prompts = [{
-    //   type: 'confirm',
-    //   name: 'createComplex',
-    //   message: 'Would you like to create a complex field?',
-    //   default: true
-    // }];
+    var prompts = [{
+      type: 'input',
+      name: 'componentName',
+      message: 'What is the component name?',
+      default: 'component'
+    }];
 
-    // this.prompt(prompts, function (props) {
-    //   this.props = props;
-    //   // To access props later use this.props.someOption;
+    this.prompt(prompts, function (props) {
+      this.componentName = props.componentName;
 
-    //   done();
-    // }.bind(this));
+      done();
+    }.bind(this));
   },
-
   writing: function () {
-      // this.log('this.props.createComplex = ', this.props.createComplex);
+      var componentName = this.lodash.camelCase(this.componentName);
+      var destinationPath = './scripts/editor/components/fields/' + componentName + '/';
 
       var files = [
         'index.js'
@@ -46,7 +39,7 @@ module.exports = yeoman.generators.Base.extend({
       files.forEach(function(file) {
         this.fs.copyTpl(
           this.templatePath(file),
-          this.destinationPath(file),
+          this.destinationPath(destinationPath + file),
           this
         );
       }, this);
@@ -58,24 +51,13 @@ module.exports = yeoman.generators.Base.extend({
         'Model.ts',
         'Store.js'
       ];
-      var componentName = this.lodash.camelCase(this.componentName);
 
       files.forEach(function(file) {
         this.fs.copyTpl(
           this.templatePath('field' + file),
-          this.destinationPath(componentName + file),
+          this.destinationPath(destinationPath + componentName + file),
           this
         );
       }, this);
-
-
-      // this.fs.copy(
-      //   this.templatePath('index.js'),
-      //   this.destinationPath('package.json')
-      // );
-      // this.fs.copy(
-      //   this.templatePath('_bower.json'),
-      //   this.destinationPath('bower.json')
-      // );
     }
 });
