@@ -1,5 +1,6 @@
 var React = require('react');
 var Translate = require('react-translate-component');
+var moment = require('moment');
 var statusCodes = require('reflux-store-status/statusCodes');
 var ProgressIndicator = require('../../../../common/progressIndicator.jsx');
 var Certificate = require('../../../models/certificate.ts');
@@ -18,48 +19,20 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
             .filter(activity => activity.registrationNumber !== registrationNumber);
     },
     _renderData() {
-        var {certificate} = this.props;
-        var {plannedWorkingPeriod} = certificate;
-        var startDate = '';
-        var endDate = '';
-        const dateFormat = 'DD MMM YYYY';
+        var {componentData} = this.props;
 
-        if (plannedWorkingPeriod && plannedWorkingPeriod.plannedStartDate) {
-            startDate = moment(plannedWorkingPeriod.plannedStartDate).format(dateFormat);
-        }
+        var items = componentData.map(item => <li>
+                {moment(item.date).format('YYYY-MM-DD')}
+                {item.userName}
+                {item.action} 
+            </li>);
 
-        if (plannedWorkingPeriod && plannedWorkingPeriod.plannedEndDate) {
-            endDate = moment(plannedWorkingPeriod.plannedEndDate).format(dateFormat);
-        }
-
-        return certificate.selectedWorkObjects.map(wo => {
-            var activities;
-            var activitiesOnSystem = this._getActivitiesOnSystem(wo.systemCode);
-
-            if (activitiesOnSystem.length) {
-                activities = <ul>
-                    {activitiesOnSystem.map(activity => <NearbyActivityItem key={activity.registrationNumber}
-                                                                            activity={activity}/>)}
-                </ul>;
-
-            } else {
-                activities = <div>
-                    <Translate content='PermitVision.Label_NoNearbyActivitiesAtSystem'/>
-                </div>;
-            }
-
-            return <div key={wo.systemCode}>
-                <img src="./images/system_icon.png" className='system-icon' alt=""/>
-                <Translate content='PermitVision.Label_NearbyActivitiesAtSystemHeader'
-                           systemName={wo.systemDescription}
-                           startDate={startDate}
-                           endDate={endDate}/>
-                {activities}
-            </div>;
-        });
+        return <ul>
+            {items}
+        </ul>;
     },
     render() {
-        var {status, statusCodes} = this.props;
+        var {status} = this.props;
         var fieldValue;
 
         if (status === statusCodes.PENDING || status === statusCodes.INITIAL) {
@@ -67,7 +40,7 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
         } else if (status === statusCodes.READY) {
             fieldValue = this._renderData();
         } else {
-            fieldValue = <Translate content='PermitVision.Label_Error'/>
+            fieldValue = <Translate content='PermitVision.Label_Error'/>;
         }
 
         return <div className="row editrow">

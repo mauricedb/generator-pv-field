@@ -11,7 +11,7 @@ var <%= lodash.capitalize(componentName) %>Adapter = React.createClass({
         certificate: React.PropTypes.instanceOf(Certificate).isRequired
     },
     _loadData(certificate) {
-        <%= lodash.camelCase(componentName) %>Actions.loadData(certificate.registrationNumber);
+        <%= lodash.camelCase(componentName) %>Actions.loadData(certificate.registrationNumber, certificate.kind);
     },
     componentWillMount() {
         this._loadData(this.props.certificate);

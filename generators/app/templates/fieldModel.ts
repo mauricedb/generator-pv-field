@@ -1,13 +1,15 @@
 class <%= lodash.capitalize(componentName) %>Model {
 
-    constructor(public code: string,
-                public description: string) {
+    constructor(public userName: string,
+                public action: string,
+                public date: Date) {
     }
 
     static fromJSON(json: any) {
         return new <%= lodash.capitalize(componentName) %>Model(
-            json.code,
-            json.description
+            json.userName,
+            json.action,
+            new Date(json.date)
         );
     }
 }

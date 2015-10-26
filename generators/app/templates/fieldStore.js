@@ -6,8 +6,8 @@ var <%= lodash.camelCase(componentName) %>Store = Reflux.createStore({
     mixins: [storeStatusMixin],
     listenables: [<%= lodash.camelCase(componentName) %>Actions],
     init() {
-            this._state = {
-                <%= lodash.camelCase(componentName) %>Data: []
+        this._state = {
+            <%= lodash.camelCase(componentName) %>Data: []
         };
     },
     getInitialState() {
@@ -17,7 +17,7 @@ var <%= lodash.camelCase(componentName) %>Store = Reflux.createStore({
         this.resetToInitialStatus();
         this.init();
     },
-    onGetDataCompleted(<%= lodash.camelCase(componentName) %>Data) {
+    onLoadDataCompleted(<%= lodash.camelCase(componentName) %>Data) {
         this._state.<%= lodash.camelCase(componentName) %>Data = <%= lodash.camelCase(componentName) %>Data;
         this.ready(this._state);
     }
