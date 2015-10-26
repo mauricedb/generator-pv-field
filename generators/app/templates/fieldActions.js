@@ -13,7 +13,7 @@ var <%= lodash.camelCase(componentName) %>Actions = Reflux.createActions({
 
     httpClient.query('api/activitiesAtSystem/' + encodeURIComponent(registrationNumber) )
         .then(
-            e => e.map(<%= lodash.capitalize(componentName) %>Model.fromJSON),
+            e => this.completed(e.map(<%= lodash.capitalize(componentName) %>Model.fromJSON)),
             e => this.failed(e)
     );
 });

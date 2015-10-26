@@ -24,13 +24,12 @@ var <%= lodash.capitalize(componentName) %>Adapter = React.createClass({
         }
     },
     render() {
-        var {status, activitiesOnSystem} = this.state;
+        var {status, <%= lodash.camelCase(componentName) %>Data} = this.state;
         var {certificate} = this.props;
-        var {statusCodes} = fieldStore;
 
         return <<%= lodash.capitalize(componentName) %>Component 
             certificate={certificate}
-            activitiesOnSystem={activitiesOnSystem}
+            <%= lodash.camelCase(componentName) %>Data={<%= lodash.camelCase(componentName) %>Data}
             status={status} />;
     }
 });

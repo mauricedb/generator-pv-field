@@ -10,7 +10,8 @@ module.exports = yeoman.generators.Base.extend({
 
     this.argument('componentName', {
       type: String,
-      required: true
+      required: false,
+      defaults: 'component'
     });
   },
   prompting: function () {
@@ -40,10 +41,7 @@ module.exports = yeoman.generators.Base.extend({
       // this.log('this.props.createComplex = ', this.props.createComplex);
 
       var files = [
-        'index.js',
-        'fieldAdapter.jsx',
-        'fieldActions.js',
-        'fieldModel.ts'
+        'index.js'
       ];
       files.forEach(function(file) {
         this.fs.copyTpl(
@@ -52,6 +50,24 @@ module.exports = yeoman.generators.Base.extend({
           this
         );
       }, this);
+
+      var files = [
+        'Actions.js',
+        'Adapter.jsx',
+        'Component.jsx',
+        'Model.ts',
+        'Store.js'
+      ];
+      var componentName = this.lodash.camelCase(this.componentName);
+
+      files.forEach(function(file) {
+        this.fs.copyTpl(
+          this.templatePath('field' + file),
+          this.destinationPath(componentName + file),
+          this
+        );
+      }, this);
+
 
       // this.fs.copy(
       //   this.templatePath('index.js'),
