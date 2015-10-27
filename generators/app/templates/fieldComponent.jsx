@@ -10,7 +10,7 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
     propTypes: {
         certificate: React.PropTypes.instanceOf(Certificate).isRequired,
         <%= lodash.camelCase(componentName) %>Data: React.PropTypes.arrayOf(<%= lodash.capitalize(componentName) %>Model).isRequired,
-        status: React.PropTypes.string
+        status: React.PropTypes.string.isRequired
     },
     _getActivitiesOnSystem(systemCode) {
         var {registrationNumber} = this.props.certificate;

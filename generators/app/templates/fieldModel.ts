@@ -1,5 +1,4 @@
 class <%= lodash.capitalize(componentName) %>Model {
-
     constructor(public userName: string,
                 public action: string,
                 public date: Date) {
