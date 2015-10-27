@@ -1,17 +1,18 @@
 {
-  "name": "generator-pv-field",
+  "name": "generator-pv8-field",
   "version": "0.0.0",
-  "description": "Yeoman generator for a PV field",
+  "description": "Yeoman generator for a PV8 field",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "mauricedb/generator-pv-field",
+  "repository": "mauricedb/generator-pv8-field",
   "author": {
     "name": "Maurice",
     "email": "",
     "url": "https://github.com/mauricedb"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-watch": "mocha --watch"
   },
   "files": [
     "generators"
