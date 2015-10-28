@@ -23,17 +23,22 @@ var <%= componentNamePC %>Component = React.createClass({
     },
     _renderData() {
         var {data, componentData} = this.props;
-        var options = componentData.map((item, index) =>
-            <option key={ index }
-                    value={ item.action } >
-              {item.action}
-          </option>);
 
-        return <select className="form-control"
-                value={ data }
-                onChange={ this._onItemSelected }>
-            { options }
-        </select>
+        if (this.props.editMode) {
+            var options = componentData.map((item, index) =>
+                <option key={ index }
+                    value={ item.action } >
+                {item.action}
+            </option>);
+
+            return <select className="form-control"
+                           value={ data }
+                           onChange={ this._onItemSelected }>
+                    { options }
+                </select>;
+        }
+
+        return {data};
     },
     render() {
         var {status} = this.props;
@@ -49,7 +54,7 @@ var <%= componentNamePC %>Component = React.createClass({
 
         return <div className="row editrow">
             <div className="fieldname">
-                <Translate content='PermitVision.Label_<%= componentNamePC %>'/>
+                <Translate content={ 'PermitVision.Label_' + this.props.options.resourceKey } />
             </div>
             <div className="fieldvalue">
                 { fieldValue }

@@ -25,12 +25,14 @@ var <%= componentNamePC %>Adapter = React.createClass({
     },
     render() {
         var {status, <%= componentNameCC %>Data} = this.state;
-        var {certificate, options, onChange} = this.props;
+        var {data, certificate, options, editMode, onChange} = this.props;
 
         return <<%= componentNamePC %>Component
+            data={data}
             certificate={certificate}
             <%= componentNameCC %>Data={<%= componentNameCC %>Data}
             status={status}
+            editMode={editMode}
             onChange={onChange}
             options={options}/>;
     }
