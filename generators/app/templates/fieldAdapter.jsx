@@ -1,17 +1,17 @@
 var React = require('react');
 var Reflux = require('reflux');
-var <%= lodash.camelCase(componentName) %>Actions = require('./<%= lodash.camelCase(componentName) %>Actions');
-var <%= lodash.camelCase(componentName) %>Store = require('./<%= lodash.camelCase(componentName) %>Store');
-var <%= lodash.capitalize(componentName) %>Component = require('./<%= lodash.camelCase(componentName) %>Component.jsx');
+var <%= componentNameCC %>Actions = require('./<%= componentNameCC %>Actions');
+var <%= componentNameCC %>Store = require('./<%= componentNameCC %>Store');
+var <%= componentNamePC %>Component = require('./<%= componentNameCC %>Component.jsx');
 var Certificate = require('../../../models/certificate.ts');
 
-var <%= lodash.capitalize(componentName) %>Adapter = React.createClass({
-    mixins: [Reflux.connect(<%= lodash.camelCase(componentName) %>Store)],
+var <%= componentNamePC %>Adapter = React.createClass({
+    mixins: [Reflux.connect(<%= componentNameCC %>Store)],
     propTypes: {
         certificate: React.PropTypes.instanceOf(Certificate).isRequired
     },
     _loadData(certificate) {
-        <%= lodash.camelCase(componentName) %>Actions.loadData(certificate.registrationNumber, certificate.kind);
+        <%= componentNameCC %>Actions.loadData(certificate.registrationNumber, certificate.kind);
     },
     componentWillMount() {
         this._loadData(this.props.certificate);
@@ -24,14 +24,16 @@ var <%= lodash.capitalize(componentName) %>Adapter = React.createClass({
         }
     },
     render() {
-        var {status, <%= lodash.camelCase(componentName) %>Data} = this.state;
-        var {certificate} = this.props;
+        var {status, <%= componentNameCC %>Data} = this.state;
+        var {certificate, options, onChange} = this.props;
 
-        return <<%= lodash.capitalize(componentName) %>Component 
+        return <<%= componentNamePC %>Component
             certificate={certificate}
-            <%= lodash.camelCase(componentName) %>Data={<%= lodash.camelCase(componentName) %>Data}
-            status={status} />;
+            <%= componentNameCC %>Data={<%= componentNameCC %>Data}
+            status={status}
+            onChange={onChange}
+            options={options}/>;
     }
 });
 
-module.exports = <%= lodash.capitalize(componentName) %>Adapter;
+module.exports = <%= componentNamePC %>Adapter;

@@ -2,12 +2,9 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var lodash = require('lodash');
 
 module.exports = yeoman.generators.Base.extend({
-  initializing: function () {
-    this.lodash = require('lodash');
-    this.path = require('path');
-  },
   prompting: function () {
     var done = this.async();
 
@@ -25,12 +22,14 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.componentName = props.componentName;
+      this.componentNamePC = lodash.capitalize(lodash.camelCase(props.componentName));
+      this.componentNameCC = lodash.camelCase(props.componentName);
 
       done();
     }.bind(this));
   },
   writing: function () {
-      var componentName = this.lodash.camelCase(this.componentName);
+      var componentName = this.componentNameCC;
       var destinationPath = './scripts/editor/components/fields/' + componentName + '/';
 
       var files = [

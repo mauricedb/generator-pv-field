@@ -4,12 +4,12 @@ var moment = require('moment');
 var statusCodes = require('reflux-store-status/statusCodes');
 var ProgressIndicator = require('../../../../common/progressIndicator.jsx');
 var Certificate = require('../../../models/certificate.ts');
-var <%= lodash.capitalize(componentName) %>Model = require('./<%= lodash.camelCase(componentName) %>Model.ts');
+var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
 
-var <%= lodash.capitalize(componentName) %>Component = React.createClass({
+var <%= componentNamePC %>Component = React.createClass({
     propTypes: {
         certificate: React.PropTypes.instanceOf(Certificate).isRequired,
-        <%= lodash.camelCase(componentName) %>Data: React.PropTypes.arrayOf(<%= lodash.capitalize(componentName) %>Model).isRequired,
+        <%= componentNameCC %>Data: React.PropTypes.arrayOf(<%= componentNamePC %>Model).isRequired,
         status: React.PropTypes.string.isRequired
     },
     _getActivitiesOnSystem(systemCode) {
@@ -18,18 +18,22 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
         return (this.props.activitiesOnSystem[systemCode] || [])
             .filter(activity => activity.registrationNumber !== registrationNumber);
     },
+    _onItemSelected(e) {
+        this.props.onChange(this.props.options.propertyName, e.target.value);
+    },
     _renderData() {
-        var {componentData} = this.props;
+        var {data, componentData} = this.props;
+        var options = componentData.map((item, index) =>
+            <option key={ index }
+                    value={ item.action } >
+              {item.action}
+          </option>);
 
-        var items = componentData.map(item => <li>
-                {moment(item.date).format('YYYY-MM-DD')}
-                {item.userName}
-                {item.action} 
-            </li>);
-
-        return <ul>
-            {items}
-        </ul>;
+        return <select className="form-control"
+                value={ data }
+                onChange={ this._onItemSelected }>
+            { options }
+        </select>
     },
     render() {
         var {status} = this.props;
@@ -45,7 +49,7 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
 
         return <div className="row editrow">
             <div className="fieldname">
-                <Translate content='PermitVision.Label_<%= lodash.capitalize(componentName) %>'/>
+                <Translate content='PermitVision.Label_<%= componentNamePC %>'/>
             </div>
             <div className="fieldvalue">
                 { fieldValue }
@@ -54,4 +58,4 @@ var <%= lodash.capitalize(componentName) %>Component = React.createClass({
     }
 });
 
-module.exports = <%= lodash.capitalize(componentName) %>Component;
+module.exports = <%= componentNamePC %>Component;

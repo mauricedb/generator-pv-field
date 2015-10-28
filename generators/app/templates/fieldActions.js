@@ -1,17 +1,17 @@
 var Reflux = require('reflux');
 var httpClient = require('../../../../utils/httpClient');
-var <%= lodash.capitalize(componentName) %>Model = require('./<%= lodash.camelCase(componentName) %>Model.ts');
+var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
 
-var <%= lodash.camelCase(componentName) %>Actions = Reflux.createActions({
+var <%= componentNameCC %>Actions = Reflux.createActions({
     loadData: {asyncResult: true}
 });
 
-<%= lodash.camelCase(componentName) %>Actions.loadData.listen(function (registrationNumber, kind) {
+<%= componentNameCC %>Actions.loadData.listen(function (registrationNumber, kind) {
     httpClient.query('api/certificates/' + encodeURIComponent(registrationNumber) + '/audittrail?kind=' + encodeURIComponent(kind))
         .then(
-            e => this.completed(e.map(<%= lodash.capitalize(componentName) %>Model.fromJSON)),
+            e => this.completed(e.map(<%= componentNamePC %>Model.fromJSON)),
             e => this.failed(e)
     );
 });
 
-module.exports = <%= lodash.camelCase(componentName) %>Actions;
+module.exports = <%= componentNameCC %>Actions;

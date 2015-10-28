@@ -1,13 +1,13 @@
 var Reflux = require('reflux');
 var storeStatusMixin = require('reflux-store-status');
-var <%= lodash.camelCase(componentName) %>Actions = require('./<%= lodash.camelCase(componentName) %>Actions');
+var <%= componentNameCC %>Actions = require('./<%= componentNameCC %>Actions');
 
-var <%= lodash.camelCase(componentName) %>Store = Reflux.createStore({
+var <%= componentNameCC %>Store = Reflux.createStore({
     mixins: [storeStatusMixin],
-    listenables: [<%= lodash.camelCase(componentName) %>Actions],
+    listenables: [<%= componentNameCC %>Actions],
     init() {
         this._state = {
-            <%= lodash.camelCase(componentName) %>Data: []
+            <%= componentNameCC %>Data: []
         };
     },
     getInitialState() {
@@ -17,10 +17,10 @@ var <%= lodash.camelCase(componentName) %>Store = Reflux.createStore({
         this.resetToInitialStatus();
         this.init();
     },
-    onLoadDataCompleted(<%= lodash.camelCase(componentName) %>Data) {
-        this._state.<%= lodash.camelCase(componentName) %>Data = <%= lodash.camelCase(componentName) %>Data;
+    onLoadDataCompleted(<%= componentNameCC %>Data) {
+        this._state.<%= componentNameCC %>Data = <%= componentNameCC %>Data;
         this.ready(this._state);
     }
 });
 
-module.exports = <%= lodash.camelCase(componentName) %>Store;
+module.exports = <%= componentNameCC %>Store;

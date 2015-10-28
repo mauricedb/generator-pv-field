@@ -1,3 +1,3 @@
-var <%= lodash.capitalize(componentName) %> = require('./<%= lodash.camelCase(componentName) %>Adapter.jsx');
+var <%= componentNamePC %> = require('./<%= componentNameCC %>Adapter.jsx');
 
-module.exports = <%= lodash.capitalize(lodash.camelCase(componentName)) %>;
+module.exports = <%= componentNamePC %>;
