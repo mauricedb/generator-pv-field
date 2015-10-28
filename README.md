@@ -1,7 +1,7 @@
 
-[![Build Status](https://secure.travis-ci.org/mauricedb/generator-pv-field.png?branch=master)](https://travis-ci.org/mauricedb/generator-pv-field)
+[![Build Status](https://secure.travis-ci.org/mauricedb/generator-pv8-field.png?branch=master)](https://travis-ci.org/mauricedb/generator-pv8-field)
 
-> [Yeoman](http://yeoman.io) generator for a PV field
+> [Yeoman](http://yeoman.io) generator for a PV8 field
 
 
 ## Getting Started
@@ -24,16 +24,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-pv-field from npm, run:
+To install generator-pv8-field from npm, run:
 
 ```bash
-npm install -g generator-pv-field
+npm install -g generator-pv8-field
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo pv-field
+yo pv8-field
 ```
 
 ### Getting To Know Yeoman
