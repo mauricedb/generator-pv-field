@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
       type: 'input',
       name: 'componentName',
       message: 'What is the component name?',
-      default: 'component'
+      default: 'component name'
     }];
 
     this.prompt(prompts, function (props) {
