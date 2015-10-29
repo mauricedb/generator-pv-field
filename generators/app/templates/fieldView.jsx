@@ -6,7 +6,7 @@ var ProgressIndicator = require('../../../../common/progressIndicator.jsx');
 var Certificate = require('../../../models/certificate.ts');
 var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
 
-var <%= componentNamePC %>Component = React.createClass({
+var <%= componentNamePC %>View = React.createClass({
     propTypes: {
         certificate: React.PropTypes.instanceOf(Certificate).isRequired,
         <%= componentNameCC %>Data: React.PropTypes.arrayOf(<%= componentNamePC %>Model).isRequired,
@@ -63,4 +63,4 @@ var <%= componentNamePC %>Component = React.createClass({
     }
 });
 
-module.exports = <%= componentNamePC %>Component;
+module.exports = <%= componentNamePC %>View;
