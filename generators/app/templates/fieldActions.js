@@ -1,5 +1,5 @@
 var Reflux = require('reflux');
-var httpClient = require('../../../../utils/httpClient');
+var httpClient = require('utils/httpClient');
 var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
 
 var <%= componentNameCC %>Actions = Reflux.createActions({

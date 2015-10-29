@@ -1,9 +1,8 @@
 var React = require('react');
 var Translate = require('react-translate-component');
-var moment = require('moment');
 var statusCodes = require('reflux-store-status/statusCodes');
-var ProgressIndicator = require('../../../../common/progressIndicator.jsx');
-var Certificate = require('../../../models/certificate.ts');
+var ProgressIndicator = require('common/progressIndicator.jsx');
+var Certificate = require('editor/models/certificate.ts');
 var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
 
 var <%= componentNamePC %>View = React.createClass({

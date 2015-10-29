@@ -1,9 +1,9 @@
 var React = require('react');
 var Reflux = require('reflux');
+var Certificate = require('editor/models/certificate.ts');
 var <%= componentNameCC %>Actions = require('./<%= componentNameCC %>Actions');
 var <%= componentNameCC %>Store = require('./<%= componentNameCC %>Store');
-var <%= componentNamePC %>Component = require('./<%= componentNameCC %>Component.jsx');
-var Certificate = require('../../../models/certificate.ts');
+var <%= componentNamePC %>Component = require('./<%= componentNameCC %>View.jsx');
 
 var <%= componentNamePC %>Adapter = React.createClass({
     mixins: [Reflux.connect(<%= componentNameCC %>Store)],
