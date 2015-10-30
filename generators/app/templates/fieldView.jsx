@@ -11,20 +11,14 @@ var <%= componentNamePC %>View = React.createClass({
         <%= componentNameCC %>Data: React.PropTypes.arrayOf(<%= componentNamePC %>Model).isRequired,
         status: React.PropTypes.string.isRequired
     },
-    _getActivitiesOnSystem(systemCode) {
-        var {registrationNumber} = this.props.certificate;
-
-        return (this.props.activitiesOnSystem[systemCode] || [])
-            .filter(activity => activity.registrationNumber !== registrationNumber);
-    },
     _onItemSelected(e) {
         this.props.onChange(this.props.options.propertyName, e.target.value);
     },
     _renderData() {
-        var {data, componentData} = this.props;
+        var {data, <%= componentNameCC %>Data} = this.props;
 
         if (this.props.editMode) {
-            var options = componentData.map((item, index) =>
+            var options = <%= componentNameCC %>Data.map((item, index) =>
                 <option key={ index }
                     value={ item.action } >
                 {item.action}
