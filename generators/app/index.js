@@ -29,34 +29,47 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
   writing: function () {
-      var componentName = this.componentNameCC;
-      var destinationPath = './scripts/editor/components/fields/' + componentName + '/';
+    var componentName = this.componentNameCC;
+    var destinationPath = './scripts/editor/components/fields/' + componentName + '/';
+    var testDestinationPath = '__tests__/editor/components/editorFields/' + componentName + '/';
 
-      var files = [
-        'index.js'
-      ];
-      files.forEach(function(file) {
-        this.fs.copyTpl(
-          this.templatePath(file),
-          this.destinationPath(destinationPath + file),
-          this
-        );
-      }, this);
+    var files = [
+      'index.js'
+    ];
+    files.forEach(function (file) {
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(destinationPath + file),
+        this
+      );
+    }, this);
 
-      var files = [
-        'Actions.js',
-        'Adapter.jsx',
-        'Model.ts',
-        'Store.js',
-        'View.jsx'
-      ];
+    var files = [
+      'Actions.js',
+      'Adapter.jsx',
+      'Model.ts',
+      'Store.js',
+      'View.jsx'
+    ];
 
-      files.forEach(function(file) {
-        this.fs.copyTpl(
-          this.templatePath('field' + file),
-          this.destinationPath(destinationPath + componentName + file),
-          this
-        );
-      }, this);
-    }
+    files.forEach(function (file) {
+      this.fs.copyTpl(
+        this.templatePath('field' + file),
+        this.destinationPath(destinationPath + componentName + file),
+        this
+      );
+    }, this);
+
+
+    var files = [
+      'View.tests.js'
+    ];
+    files.forEach(function (file) {
+      this.fs.copyTpl(
+        this.templatePath('field' + file),
+        this.destinationPath(testDestinationPath + componentName + file),
+        this
+      );
+    }, this);
+  }
 });
