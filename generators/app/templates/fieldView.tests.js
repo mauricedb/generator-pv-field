@@ -4,10 +4,10 @@ var statusCodes = require('reflux-store-status/statusCodes');
 
 var CertificateBuilder = require('../../../../testUtilities/builders/certificateBuilder');
 
-var ComponentNameView = require('editor/components/fields/componentName/componentNameView.jsx');
-var ComponentNameModel = require('editor/components/fields/componentName/componentNameModel.ts');
+var <%= componentNamePC %>View = require('editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>View.jsx');
+var <%= componentNamePC %>Model = require('editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>Model.ts');
 
-describe('The ComponentName View', () => {
+describe('The <%= componentNamePC %> View', () => {
   var component, props, onChange;
 
   beforeEach(() => {
@@ -20,15 +20,15 @@ describe('The ComponentName View', () => {
       certificate,
       onChange,
       data: 'SomeAction2',
-      componentNameData: [
-        new ComponentNameModel('eVision', 'SomeAction1', new Date(2015, 0, 1)),
-        new ComponentNameModel('eVision', 'SomeAction2', new Date(2015, 0, 1)),
-        new ComponentNameModel('eVision', 'SomeAction3', new Date(2015, 0, 1))
+      <%= componentNameCC %>Data: [
+        new <%= componentNamePC %>Model('eVision', 'SomeAction1', new Date(2015, 0, 1)),
+        new <%= componentNamePC %>Model('eVision', 'SomeAction2', new Date(2015, 0, 1)),
+        new <%= componentNamePC %>Model('eVision', 'SomeAction3', new Date(2015, 0, 1))
       ],
       status: statusCodes.READY,
       options: {
-        propertyName: 'propertyName',
-        resourceKey: 'ComponentName'
+        propertyName: '<%= componentNameCC %>',
+        resourceKey: '<%= componentNamePC %>'
       },
       editMode: true
     };
@@ -38,7 +38,7 @@ describe('The ComponentName View', () => {
     beforeEach(() => {
       props.status = statusCodes.PENDING;
 
-      component = TestUtils.renderIntoDocument(<ComponentNameView {...props} />);
+      component = TestUtils.renderIntoDocument(<<%= componentNamePC %>View {...props} />);
 
     });
 
@@ -55,7 +55,7 @@ describe('The ComponentName View', () => {
 
   describe('When the store is loaded', () => {
     beforeEach(() => {
-      component = TestUtils.renderIntoDocument(<ComponentNameView {...props} />);
+      component = TestUtils.renderIntoDocument(<<%= componentNamePC %>View {...props} />);
     });
 
     it('can be rendered', () => {
@@ -76,7 +76,7 @@ describe('The ComponentName View', () => {
       var select = TestUtils.findOne(component, 'select');
       TestUtils.Simulate.change(select, {target: {value: 'SomeAction3'}});
 
-      expect(onChange).toHaveBeenCalledWith('propertyName', 'SomeAction3')
+      expect(onChange).toHaveBeenCalledWith('<%= componentNameCC %>', 'SomeAction3')
     })
   });
 
@@ -84,7 +84,7 @@ describe('The ComponentName View', () => {
     beforeEach(() => {
       props.editMode = false;
 
-      component = TestUtils.renderIntoDocument(<ComponentNameView {...props} />);
+      component = TestUtils.renderIntoDocument(<<%= componentNamePC %>View {...props} />);
     });
 
     it('can be rendered', () => {
