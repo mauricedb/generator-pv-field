@@ -6,9 +6,7 @@ var <%= componentNameCC %>Store = Reflux.createStore({
     mixins: [storeStatusMixin],
     listenables: [<%= componentNameCC %>Actions],
     init() {
-        this._state = {
-            <%= componentNameCC %>Data: []
-        };
+        this._state.<%= componentNameCC %>Data = [];
     },
     getInitialState() {
         return this._state;
