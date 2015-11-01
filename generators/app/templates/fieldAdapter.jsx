@@ -24,9 +24,6 @@ var <%= componentNamePC %>Adapter = React.createClass({
         }
     },
     render() {
-        var {status, <%= componentNameCC %>Data} = this.state;
-        var {data, certificate, options, editMode, onChange} = this.props;
-
         return <<%= componentNamePC %>Component {...this.props} {...this.state} />;
     }
 });
