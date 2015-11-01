@@ -62,6 +62,7 @@ module.exports = yeoman.generators.Base.extend({
 
 
     var files = [
+      'Adapter.tests.js',
       'View.tests.js'
     ];
     files.forEach(function (file) {
