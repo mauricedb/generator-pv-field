@@ -4,10 +4,10 @@ var TestUtils = require('react-testutils-additions');
 var CertificateBuilder = require('../../../../testUtilities/builders/certificateBuilder');
 var httpBackend = require('../../../../testUtilities/httpBackend');
 
-var ComponentNameAdapter = require('editor/components/fields/componentName');
-var componentNameStore = require('editor/components/fields/componentName/componentNameStore');
+var <%= componentNamePC %>Adapter = require('editor/components/fields/<%= componentNameCC %>');
+var <%= componentNameCC %>Store = require('editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>Store');
 
-fdescribe('The ComponentName Adapter', () => {
+fdescribe('The <%= componentNamePC %> Adapter', () => {
   var component;
 
   beforeAll(done => {
@@ -17,21 +17,21 @@ fdescribe('The ComponentName Adapter', () => {
     var props = {
       certificate,
       options: {
-        propertyName: 'componentName',
-        resourceKey: 'ComponentName'
+        propertyName: '<%= componentNameCC %>',
+        resourceKey: '<%= componentNamePC %>'
       },
       editMode: true
     };
 
     httpBackend.mock(/api\/certificates\/1234\/audittrail/, [{}]);
 
-    componentNameStore.listen(state => {
-      if (state.status === componentNameStore.statusCodes.READY) {
+    <%= componentNameCC %>Store.listen(state => {
+      if (state.status === <%= componentNameCC %>Store.statusCodes.READY) {
         setTimeout(done);
       }
     });
 
-    component = TestUtils.renderIntoDocument(<ComponentNameAdapter {...props} />);
+    component = TestUtils.renderIntoDocument(<<%= componentNamePC %>Adapter {...props} />);
   });
 
   it('can be rendered', () => {
