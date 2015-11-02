@@ -31,7 +31,7 @@ var <%= componentNamePC %>View = React.createClass({
                 </select>;
         }
 
-        return {data};
+        return <span>{data}</span>;
     },
     render() {
         var {status} = this.props;
