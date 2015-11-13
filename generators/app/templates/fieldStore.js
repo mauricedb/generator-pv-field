@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
-var storeStatusMixin = require('reflux-store-status');
-var <%= componentNameCC %>Actions = require('./<%= componentNameCC %>Actions');
+import Reflux from 'reflux';
+import storeStatusMixin from 'reflux-store-status';
+import <%= componentNameCC %>Actions from './<%= componentNameCC %>Actions';
 
 var <%= componentNameCC %>Store = Reflux.createStore({
     mixins: [storeStatusMixin],
@@ -21,4 +21,4 @@ var <%= componentNameCC %>Store = Reflux.createStore({
     }
 });
 
-module.exports = <%= componentNameCC %>Store;
+export default <%= componentNameCC %>Store;

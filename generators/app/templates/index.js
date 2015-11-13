@@ -1,3 +1,3 @@
-var <%= componentNamePC %> = require('./<%= componentNameCC %>Adapter.jsx');
+import <%= componentNamePC %> from './<%= componentNameCC %>Adapter.jsx';
 
-module.exports = <%= componentNamePC %>;
+export default <%= componentNamePC %>;

@@ -1,9 +1,9 @@
-var React = require('react');
-var Translate = require('react-translate-component');
-var statusCodes = require('reflux-store-status/statusCodes');
-var ProgressIndicator = require('common/progressIndicator.jsx');
-var Certificate = require('editor/models/certificate.ts');
-var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
+import React from 'react';
+import Translate from 'react-translate-component';
+import statusCodes from 'reflux-store-status/statusCodes';
+import ProgressIndicator from 'common/progressIndicator.jsx';
+import Certificate from 'editor/models/certificate.ts';
+import <%= componentNamePC %>Model from './<%= componentNameCC %>Model.ts';
 
 var <%= componentNamePC %>View = React.createClass({
     propTypes: {
@@ -56,4 +56,4 @@ var <%= componentNamePC %>View = React.createClass({
     }
 });
 
-module.exports = <%= componentNamePC %>View;
+export default <%= componentNamePC %>View;

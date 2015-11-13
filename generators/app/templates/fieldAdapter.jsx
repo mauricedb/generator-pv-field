@@ -1,9 +1,9 @@
-var React = require('react');
-var Reflux = require('reflux');
-var Certificate = require('editor/models/certificate.ts');
-var <%= componentNameCC %>Actions = require('./<%= componentNameCC %>Actions');
-var <%= componentNameCC %>Store = require('./<%= componentNameCC %>Store');
-var <%= componentNamePC %>Component = require('./<%= componentNameCC %>View.jsx');
+import React from 'react';
+import Reflux from 'reflux';
+import Certificate from 'editor/models/certificate.ts';
+import <%= componentNameCC %>Actions from './<%= componentNameCC %>Actions';
+import <%= componentNameCC %>Store from './<%= componentNameCC %>Store';
+import <%= componentNamePC %>Component from './<%= componentNameCC %>View.jsx';
 
 var <%= componentNamePC %>Adapter = React.createClass({
     mixins: [Reflux.connect(<%= componentNameCC %>Store)],
@@ -28,4 +28,4 @@ var <%= componentNamePC %>Adapter = React.createClass({
     }
 });
 
-module.exports = <%= componentNamePC %>Adapter;
+export default <%= componentNamePC %>Adapter;

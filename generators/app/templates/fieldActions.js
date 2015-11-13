@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
-var httpClient = require('utils/httpClient');
-var <%= componentNamePC %>Model = require('./<%= componentNameCC %>Model.ts');
+import Reflux from 'reflux';
+import httpClient from 'utils/httpClient';
+import <%= componentNamePC %>Model from './<%= componentNameCC %>Model.ts';
 
 var <%= componentNameCC %>Actions = Reflux.createActions({
     loadData: {asyncResult: true}
@@ -14,4 +14,4 @@ var <%= componentNameCC %>Actions = Reflux.createActions({
     );
 });
 
-module.exports = <%= componentNameCC %>Actions;
+export default <%= componentNameCC %>Actions;
