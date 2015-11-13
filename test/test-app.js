@@ -17,10 +17,10 @@ describe('pv8-field:app', function () {
   it('creates files', function () {
     assert.file([
       './scripts/editor/components/fields/fieldName/index.js',
-      './scripts/editor/components/fields/fieldName/fieldNameActions.js',
+      './scripts/editor/components/fields/fieldName/fieldNameActions.ts',
       './scripts/editor/components/fields/fieldName/fieldNameAdapter.jsx',
       './scripts/editor/components/fields/fieldName/fieldNameModel.ts',
-      './scripts/editor/components/fields/fieldName/fieldNameStore.js',
+      './scripts/editor/components/fields/fieldName/fieldNameStore.ts',
       './scripts/editor/components/fields/fieldName/fieldNameView.jsx'
     ]);
   });
@@ -33,7 +33,7 @@ describe('pv8-field:app', function () {
 
   it('exposes the proper actions name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameActions.js', /export default fieldNameActions/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameActions.ts', /export default fieldNameActions/]
     ]);
   });
 
@@ -51,7 +51,7 @@ describe('pv8-field:app', function () {
 
   it('exposes the proper store name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameStore.js', /export default fieldNameStore/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameStore.ts', /export default fieldNameStore/]
     ]);
   });
 

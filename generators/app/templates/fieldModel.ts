@@ -13,4 +13,4 @@ class <%= componentNamePC %>Model {
     }
 }
 
-export = <%= componentNamePC %>Model;
+export default <%= componentNamePC %>Model;

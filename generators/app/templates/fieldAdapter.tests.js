@@ -7,7 +7,7 @@ import httpBackend from '../../../../testUtilities/httpBackend';
 import <%= componentNamePC %>Adapter from 'editor/components/fields/<%= componentNameCC %>';
 import <%= componentNameCC %>Store from 'editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>Store';
 
-fdescribe('The <%= componentNamePC %> Adapter', () => {
+describe('The <%= componentNamePC %> Adapter', () => {
     var component;
 
     beforeAll(done => {

@@ -45,10 +45,10 @@ module.exports = yeoman.generators.Base.extend({
     }, this);
 
     var files = [
-      'Actions.js',
+      'Actions.ts',
       'Adapter.jsx',
       'Model.ts',
-      'Store.js',
+      'Store.ts',
       'View.jsx'
     ];
 

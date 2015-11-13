@@ -7,7 +7,7 @@ import CertificateBuilder from '../../../../testUtilities/builders/certificateBu
 import <%= componentNamePC %>View from 'editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>View.jsx';
 import <%= componentNamePC %>Model from 'editor/components/fields/<%= componentNameCC %>/<%= componentNameCC %>Model.ts';
 
-fdescribe('The <%= componentNamePC %> View', () => {
+describe('The <%= componentNamePC %> View', () => {
     var component, props, onChange;
 
     beforeEach(() => {
