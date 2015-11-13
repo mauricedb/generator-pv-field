@@ -27,19 +27,19 @@ describe('pv8-field:app', function () {
 
   it('exposes the proper component name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/index.js', /module.exports = FieldName/]
+      ['./scripts/editor/components/fields/fieldName/index.js', /export default FieldName/]
     ]);
   });
 
   it('exposes the proper actions name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameActions.js', /module.exports = fieldNameActions/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameActions.js', /export default fieldNameActions/]
     ]);
   });
 
   it('exposes the proper adapter name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameAdapter.jsx', /module.exports = FieldNameAdapter/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameAdapter.jsx', /export default FieldNameAdapter/]
     ]);
   });
 
@@ -51,13 +51,13 @@ describe('pv8-field:app', function () {
 
   it('exposes the proper store name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameStore.js', /module.exports = fieldNameStore/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameStore.js', /export default fieldNameStore/]
     ]);
   });
 
   it('exposes the proper view name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameView.jsx', /module.exports = FieldNameView/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameView.jsx', /export default FieldNameView/]
     ]);
   });
 });
