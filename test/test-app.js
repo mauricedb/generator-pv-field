@@ -45,7 +45,7 @@ describe('pv8-field:app', function () {
 
   it('exposes the proper model name', function () {
     assert.fileContent([
-      ['./scripts/editor/components/fields/fieldName/fieldNameModel.ts', /export = FieldNameModel/]
+      ['./scripts/editor/components/fields/fieldName/fieldNameModel.ts', /export default FieldNameModel/]
     ]);
   });
 
