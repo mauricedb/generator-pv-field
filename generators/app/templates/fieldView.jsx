@@ -8,7 +8,7 @@ import <%= componentNamePC %>Model from './<%= componentNameCC %>Model.ts';
 var <%= componentNamePC %>View = React.createClass({
     propTypes: {
         certificate: React.PropTypes.instanceOf(Certificate).isRequired,
-        <%= componentNameCC %>Data: React.PropTypes.arrayOf(<%= componentNamePC %>Model).isRequired,
+        <%= componentNameCC %>Data: React.PropTypes.arrayOf(React.PropTypes.instanceOf(<%= componentNamePC %>Model)).isRequired,
         status: React.PropTypes.string.isRequired
     },
     _onItemSelected(e) {
