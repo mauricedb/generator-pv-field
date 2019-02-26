@@ -1,5 +1,5 @@
 
-[![Build Status](https://secure.travis-ci.org/mauricedb/generator-pv8-field.png?branch=master)](https://travis-ci.org/mauricedb/generator-pv8-field)
+[![Build Status](https://secure.travis-ci.org/mauricedb/generator-pv8-field.png?branch=master)](https://travis-ci.org/mauricedb/generator-pv8-field) [![Greenkeeper badge](https://badges.greenkeeper.io/mauricedb/generator-pv8-field.svg)](https://greenkeeper.io/)
 
 > [Yeoman](http://yeoman.io) generator for a PV8 field
 
